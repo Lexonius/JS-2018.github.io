@@ -11,8 +11,8 @@
 
  Другими словами: функция должна возвращать в неизменном виде то, что поступает ей на вход
  */
-function returnFirstArgument(hello) {
-    return hello
+function returnFirstArgument(second) {
+    return second
 }
 
 /*
@@ -62,11 +62,12 @@ var result=returnFnResult;
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {
-    var result=number++;
-    return result;
+function returnCounter(number){
+  function f(){
+    return ++number
+  }
+  return f;
 }
-
 
 /*
  Задание 5 *:
@@ -78,6 +79,11 @@ function returnCounter(number) {
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 function returnArgumentsArray() {
+  var args=[];
+  for (var i=0;i=arguments.length;i++){
+    args[i]=arguments[i];
+  }
+  return args;
 }
 
 /*
