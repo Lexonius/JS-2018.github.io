@@ -7,6 +7,8 @@
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
 function forEach(array, fn) {
+  for(let i=0;i<array.length;i++){
+  }
 }
 
 /*
@@ -63,4 +65,4 @@ export {
     upperProps,
     slice,
     createProxy
-};
+}
