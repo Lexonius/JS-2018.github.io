@@ -7,7 +7,9 @@
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
 function forEach(array, fn) {
+  
   for(let i=0;i<array.length;i++){
+    fn(array[i], i, array);
   }
 }
 
@@ -18,15 +20,26 @@ function forEach(array, fn) {
  Посмотрите как работает map и повторите это поведение для массива, который будет передан в параметре array
  */
 function map(array, fn) {
+  let result=[];
+  for(let i=0;i<array.length;i++){
+    let elem = fn(array[i], i, array);
+    result.push(elem);
+  }
+  return result;
 }
-
 /*
  Задание 3:
 
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
-function reduce(array, fn, initial) {
+function reduce(array, fn, initial=0) {
+  let result=[];
+  for(let i=initial;i<array.length;i++){
+    let elem = fn(array[i], i, array);
+    result.push(elem);
+  }
+  return result;
 }
 
 /*
