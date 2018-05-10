@@ -56,13 +56,13 @@ function isSomeTrue(array, fn) {
     throw new Error('fn is not a function');
   }
   for(let i = 0;i < array.length; i++){
+    //console.log(fn(array[i]));
     /* Функция возвращает false если fn вернула false хотя бы для одного элемента массива*/ 
-    if (!fn(array[i])) {
-      return false;
+    if (fn(array[i])) {
+      return true;
     }
   }
-  return true;
-  
+  return false;
 }
 
 /*
@@ -77,6 +77,19 @@ function isSomeTrue(array, fn) {
    - fn не является функцией (с текстом "fn is not a function")
  */
 function returnBadArguments(fn) {
+  let elems = [];
+  if ( typeof fn !== 'function'){
+    throw new Error('fn is not a function');
+  }
+ //console.log(arguments.length);
+  for(let i = 1;i < arguments.length; i++){
+    try {
+      fn(arguments[i]);
+    } catch (err) {
+      elems.push(arguments[i]);
+    }
+  }
+  return elems;
 }
 
 /*
@@ -97,6 +110,20 @@ function returnBadArguments(fn) {
    - какой-либо из аргументов div является нулем (с текстом "division by 0")
  */
 function calculator() {
+  let object = {}
+  object.sum = function () {
+
+  }
+  object.dif = function () {
+
+  }
+  object.div = function () {
+
+  }
+  object.mul = function () {
+
+  }
+  return object;
 }
 
 /* При решении задач, пострайтесь использовать отладчик */
