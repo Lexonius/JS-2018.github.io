@@ -49,6 +49,20 @@ function isAllTrue(array, fn) {
    isSomeTrue([1, 2, 3, 4, 5], n => n > 20) // вернет false
  */
 function isSomeTrue(array, fn) {
+  if (typeof array !== 'object' || !array.length){
+    throw new Error("empty array");
+  }
+  if (typeof fn !== 'function'){
+    throw new Error('fn is not a function');
+  }
+  for(let i = 0;i < array.length; i++){
+    /* Функция возвращает false если fn вернула false хотя бы для одного элемента массива*/ 
+    if (!fn(array[i])) {
+      return false;
+    }
+  }
+  return true;
+  
 }
 
 /*
