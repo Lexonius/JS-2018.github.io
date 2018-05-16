@@ -11,6 +11,9 @@
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
 function createDivWithText(text) {
+  let element = document.createElement('DIV');
+  element.textContent = text;
+  return element;
 }
 
 /*
@@ -22,6 +25,7 @@ function createDivWithText(text) {
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
+  where.insertBefore (what, where.firstChild);
 }
 
 /*
@@ -44,6 +48,14 @@ function prepend(what, where) {
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
 function findAllPSiblings(where) {
+  let elem = where.children;
+  let array = [];
+  for( let i = 0; i < elem.length-1; i++){
+    if(elem[i].nextElementSibling.tagName === "P"){
+      array.push(elem[i]);
+    }
+  }
+  return array; 
 }
 
 /*
@@ -64,12 +76,12 @@ function findAllPSiblings(where) {
    findError(document.body) // функция должна вернуть массив с элементами 'привет' и 'loftschool'
  */
 function findError(where) {
-    var result = [];
-
-    for (var child of where.childNodes) {
-        result.push(child.innerText);
+    let result = []; 
+    for (let i=0; i < where.childNodes.length; i++) {
+      if(where.childNodes[i].nodeType === 1){
+        result.push(where.childNodes[i].textContent);
+      }
     }
-
     return result;
 }
 
@@ -86,6 +98,12 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
+  let arr = where.childNodes;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].nodeType === 3){
+      arr[i].parentNode.removeChild(arr[i]);
+    }
+  }
 }
 
 /*
@@ -101,8 +119,18 @@ function deleteTextNodes(where) {
    должно быть преобразовано в <span><div><b></b></div><p></p></span>
  */
 function deleteTextNodesRecursive(where) {
+//console.log(where);
+  for(let i = 0; i < where.childNodes.length; i++){
+    let arr = where.childNodes[i];
+    if(arr.nodeType === 3){
+      //console.log(arr[i].nodeType);
+      where.removeChild(arr);
+      --i;
+    } else if (arr.nodeType === 1){
+      deleteTextNodesRecursive(arr);
+    }
+  } 
 }
-
 /*
  Задание 7 *:
 
