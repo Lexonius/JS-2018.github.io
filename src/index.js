@@ -39,6 +39,7 @@ function loadAndSortTowns() {
           //console.log('load',data);
           //let towns = JSON.parse(xhr.responseText);
           let data = xhr.response;
+          //console.log(xhr.response);
           data.sort(function(a,b){
             //console.log(b)
             if(a.name > b.name){

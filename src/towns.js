@@ -1,3 +1,4 @@
+import { loadAndSortTowns } from './index';
 /*
  Страница должна предварительно загрузить список городов из
  https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json
@@ -28,7 +29,13 @@
    const newDiv = document.createElement('div');
    homeworkContainer.appendChild(newDiv);
  */
+
+function loadTowns() {
+  return require('./index').loadAndSortTowns();
+}
+ 
 const homeworkContainer = document.querySelector('#homework-container');
+
 
 /*
  Функция должна вернуть Promise, который должен быть разрешен с массивом городов в качестве значения
@@ -36,8 +43,25 @@ const homeworkContainer = document.querySelector('#homework-container');
  Массив городов пожно получить отправив асинхронный запрос по адресу
  https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json
  */
-function loadTowns() {
-}
+loadAndSortTowns().then (function(data){
+    loadingBlock.style.display = 'none';
+      filterBlock.style.display = 'block';
+      filterInput.addEventListener('keyup', function (event){
+        let result = [];
+        for(let i = 0; i < data.length; i++){
+          if(isMatching (data[i].name,event.target.value)){
+            result.push(data[i]);
+          }
+        }
+            filterResult.innerHTML = '';
+            for(let i = 0; i < result.length; i++){
+              let par = document.createElement('p');
+                par.innerText = result[i].name;
+                  filterResult.appendChild(par);
+            }
+      });
+});
+  
 
 /*
  Функция должна проверять встречается ли подстрока chunk в строке full
@@ -51,6 +75,12 @@ function loadTowns() {
    isMatching('Moscow', 'Moscov') // false
  */
 function isMatching(full, chunk) {
+  //console.log(chunk)
+  if(full.toLowerCase().indexOf(chunk.toLowerCase()) !== -1){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /* Блок с надписью "Загрузка" */
@@ -62,7 +92,9 @@ const filterInput = homeworkContainer.querySelector('#filter-input');
 /* Блок с результатами поиска */
 const filterResult = homeworkContainer.querySelector('#filter-result');
 
+
 filterInput.addEventListener('keyup', function() {
+  
     // это обработчик нажатия кливиш в текстовом поле
 });
 
