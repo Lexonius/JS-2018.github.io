@@ -48,12 +48,16 @@ loadAndSortTowns().then (function(data){
       filterBlock.style.display = 'block';
       filterInput.addEventListener('keyup', function (event){
         let result = [];
+        filterResult.innerHTML = '';
         for(let i = 0; i < data.length; i++){
           if(isMatching (data[i].name,event.target.value)){
             result.push(data[i]);
           }
+          if(!event.target.value){
+            return;
+          }
         }
-            filterResult.innerHTML = '';
+          
             for(let i = 0; i < result.length; i++){
               let par = document.createElement('p');
                 par.innerText = result[i].name;
