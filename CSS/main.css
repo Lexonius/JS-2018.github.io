@@ -1,0 +1,102 @@
+    .background_wrapper{
+        background-color: #999999;
+        justify-content: center;
+        display: flex;
+        height: 620px;
+    }
+    .background_container{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin-top: 3%;
+
+    }
+    .logo_wrapper{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2%;
+        
+    }
+    .filter_wrapper{
+    }
+    .header {
+        background-color: #ff8663;
+        height: 45px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header__title{
+        margin-left: 1%;
+    }
+    .header_button{
+        margin-right: 2%;
+    }
+    .filter_search{
+        background-color: #f0f0f0;
+        height: 60px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .search_input{
+        width: 40%;
+        height: 45%;
+        border-radius: 20px;
+        margin-top: 1.5%;
+    }
+    .filter__content-column{
+        background-color: #ffffff;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+    }
+    .filter__content-column--left{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .filter_title{
+        text-align: center;
+        height: 20%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .friends_list{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .friend{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .active{
+        background-color: #f0f0f0;
+    }
+    .filter__content-column--right{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .avatar{
+    }
+    .avatar_img{
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .list_button{
+        margin-right: 4%;
+    }
+    .footer{
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: flex-end;
+        height: 46px;
+    }
+    .footer_sumbit{
+        border-radius: 5px;
+    }
