@@ -5,8 +5,118 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <title>{{htmlWebpackPlugin.options.title}}</title>
   <link rel="stylesheet" href="css/main.css">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 </head>
 <body>
+    <div class="background_wrapper">
+        <div class="background_container">
+            <div class="logo_wrapper">
+                <img src="./IMG/logo.png" class="logo_image">
+            </div>
+            <div class="filter_wrapper">
+                <header class="header">
+                    <div class="header__title">Выберите друзей</div>
+                        <div class="header_button">
+                            <img src="./IMG/Rounded Rectangle 6.png" class="header_button-img">
+                        </div>
+                </header>
+                <div class="filter_search">
+                    <input id="search_left" class="search_input" placeholder="Начните вводить имя друга">
+                    <input id="search_right" class="search_input" placeholder="Название">
+                </div>
+                <div class="filter_content">
+                    <div class="filter__content-column">
+                        <div class="filter__content-column--left">
+                            <div class="filter_title">
+                                Ваши друзья
+                                <hr style="border-width: 0.5px; width:90%" >
+                            </div>
+                            <ul class="friends_list">
+                                <li class="friend">
+                                        <div class="avatar">
+                                        <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                        </div>
+                                        <div class="name">
+                                            Artem Barabanov
+                                        </div>
+                                        <div class="list_button">
+                                            <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                        </div>
+                                </li>
+                                <li class="friend active">
+                                        <div class="avatar">
+                                          <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                        </div>
+                                        <div class="name">
+                                            Artem Barabanov
+                                        </div>
+                                        <div class="list_button">
+                                            <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                        </div>
+                                    </li>
+                                    <li class="friend">
+                                            <div class="avatar">
+                                              <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                            </div>
+                                            <div class="name">
+                                                Artem Barabanov
+                                            </div>
+                                            <div class="list_button">
+                                                <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                            </div>
+                                        </li>
+                            </ul>
+                            
+                        </div>
+                        <hr noshade style="width: 0.5px;border-color:#f0f0f0">
+                            <div class="filter__content-column--right">
+                                <div class="filter_title">
+                                Друзья в списке
+                                <hr style="border-width: 0.5px; width:90%" >
+                                </div>
+                                <ul class="friends_list">
+                                        <li class="friend active">
+                                                <div class="avatar">
+                                                <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                                </div>
+                                                <div class="name">
+                                                    Artem Barabanov
+                                                </div>
+                                                <div class="list_button">
+                                                    <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                                </div>
+                                        </li>
+                                        <li class="friend">
+                                                <div class="avatar">
+                                                  <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                                </div>
+                                                <div class="name">
+                                                    Artem Barabanov
+                                                </div>
+                                                <div class="list_button">
+                                                    <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                                </div>
+                                            </li>
+                                            <li class="friend">
+                                                    <div class="avatar">
+                                                      <img src="./IMG/Layer 3.png" class="avatar_img">  
+                                                    </div>
+                                                    <div class="name">
+                                                        Artem Barabanov
+                                                    </div>
+                                                    <div class="list_button">
+                                                        <img src="./IMG/Rounded Rectangle 5.png" class="list_button-image">
+                                                    </div>
+                                                </li>
+                                    </ul>
+                            </div>
+                    </div>
+                </div>
+                    <footer class="footer">
+                        <input type="button" value="Сохранить" class="footer_submit">
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

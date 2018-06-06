@@ -7,7 +7,7 @@
     .background_container{
         display: flex;
         flex-direction: column;
-        width: 70%;
+        width: 55%;
         margin-top: 3%;
 
     }
@@ -25,9 +25,12 @@
         align-items: center;
         display: flex;
         justify-content: space-between;
+        border-radius: 10px 10px 0 0;
     }
     .header__title{
         margin-left: 1%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #ffffff;
     }
     .header_button{
         margin-right: 2%;
@@ -37,12 +40,15 @@
         height: 60px;
         display: flex;
         justify-content: space-around;
+
     }
     .search_input{
         width: 40%;
         height: 45%;
         border-radius: 20px;
         margin-top: 1.5%;
+        border: 0;
+        outline-style: none;
     }
     .filter__content-column{
         background-color: #ffffff;
@@ -60,6 +66,8 @@
         height: 20%;
         margin-top: 2%;
         margin-bottom: 2%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #4f4f4f
     }
     .friends_list{
         list-style: none;
@@ -70,6 +78,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    .name{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
     .active{
         background-color: #f0f0f0;
@@ -96,7 +107,17 @@
         display: flex;
         justify-content: flex-end;
         height: 46px;
+        border-radius: 0 0 10px 10px;
+        align-items: center;
+        
     }
-    .footer_sumbit{
-        border-radius: 5px;
+    .footer_submit{
+        border-radius: 10px;
+        border: 0;
+        outline-style: none;
+        height: 30px;
+        margin-right: 2%;
+        background-color: #ff8663;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #ffffff;
     }
