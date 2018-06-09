@@ -39,23 +39,47 @@ function init (){
         //console.log(friends)
             let container = document.querySelector('.friends');
             console.log(friends)    
-            for(let i = 0; i<friends.length; i++){
-                console.log(a)
+            for(let i = 0; i<friends.items.length; i++){
+                //console.log(a)
                 let friend = document.createElement('div');
+                friend.classList.add("friend");
+                friend.setAttribute('draggable', true)
+                friend.setAttribute('id', 'drop_start');
+                friend.setAttribute('ondragstart','dragStart(event)');
+                function dragStart(e) { 
+                    e.dataTransfer.effectAllowed='move';
+                    e.dataTransfer.setData("Text", e.target.getAttribute('id'));
+                    return true;
+                    }
+                friend.ondragenter = function dragEnter(e) {
+                    event.preventDefault();
+                    return true;
+                    }
+                function dragDrop(e) {
+                    var data = e.dataTransfer.getData("text/plain");
+                    e.target.appendChild(document.getElementById(data));
+                    ev.stopPropagation();
+                    }  
+                function dragOver(e) {
+                    event.preventDefault();
+                }
+                //console.log(friend);
                 let avatarContainer = document.createElement('div');
                 let name = document.createElement('div');
+                name.classList.add("name");
                 let button = document.createElement('div'); 
-                let firstName = friends[i].first_name;
-                let lastName = friends[i].last_name;
-                name.innerHTML = friends[i].first_name + ' ' + friends[i].last_name;
+                let firstName = friends.items[i].first_name;
+                let lastName = friends.items[i].last_name;
+                name.innerHTML = friends.items[i].first_name + ' ' + friends.items[i].last_name;
                 let avatarImage = document.createElement('img');
-                avatarImage.setAttribute('src',friends[i].photo_100);
+                avatarImage.classList.add("avatar_img");
+                avatarImage.setAttribute('src',friends.items[i].photo_100);
                 avatarContainer.appendChild(avatarImage);
                 friend.appendChild(avatarContainer);
                 friend.appendChild(name);
                 //friend.appendChild(button);
                 container.appendChild(friend);
-                
+                //const newFriend = `<div><div> <img src="${friends.items[i].photo_100}> </div><div></div><div></div></div>`
         }
         })
 }
