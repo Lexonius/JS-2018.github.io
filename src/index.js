@@ -4,6 +4,7 @@ const myModule = {
     allFriends:undefined,
     leftFriends:undefined,
     rightFriends:undefined,
+
     init: () => {
         VK.init({
             apiId: 6502079
@@ -18,9 +19,14 @@ const myModule = {
         .then(friends => {  
             //console.log(friends)
             myModule.leftList = document.querySelector('.friends.left');
+            myModule.rightList = document.querySelector('.friends.right')
             myModule.allFriends = friends.items;
+            myModule.leftFriends = friends.items;
+            myModule.rightFriends = [];
             console.log(myModule.allFriends)    
-            myModule.render(friends.items, myModule.leftList);
+            myModule.filter('#search_left',myModule.leftFriends,myModule.leftList);
+            myModule.filter('#search_right', myModule.rightFriends,myModule.rightList);
+            myModule.render(myModule.leftFriends, myModule.leftList);
             //console.log(friends.items)
             })
     },
@@ -56,24 +62,24 @@ const myModule = {
           return false;
         }
       },
-      filter:() =>{
-            const filterInput = document.querySelector('#search_left');
+      filter:(id, arr, container) => {
+            const filterInput = document.querySelector(id);
             filterInput.addEventListener('keyup', function() {
             let result = [];
-            console.log(result);
-                for( let i = 0; i <myModule.allFriends.length; i++){
-                    let nameFilter = 'myModule.allFriends[i].first_name' + ' ' + 'myModule.allFriends[i].last_name';
+            //console.log(result);
+                for( let i = 0; i <arr.length; i++){
+                    let nameFilter = arr[i].first_name + ' ' + arr[i].last_name;
                     //console.log(nameFilter);
                     if(myModule.isMatching(nameFilter, event.target.value)){
-                        result.push(myModule.allFriends[i]);
+                        result.push(arr[i]);
                     }
                 }
-            myModule.render(result).myModule.leftList;  
+                myModule.render(result,container);  
             }
         )},
     render: (array, container) =>{
         container.innerHTML = '';
-        for(let i = 0; i<array.length; i++){
+        for(let i = 0; i < array.length; i++){
         let friend = document.createElement('div');
         friend.classList.add("friend");
         friend.setAttribute('draggable', true)
@@ -122,6 +128,5 @@ window.dragOver = function(e) {
 }
 
 
-//прочитать про closest 
 // ООП
 //обратботчик на инпут перед рендером
