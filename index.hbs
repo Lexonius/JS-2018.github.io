@@ -23,7 +23,7 @@
                 </header>
                 <div class="filter_search">
                     <input id="search_left" class="search_input" placeholder="Начните вводить имя друга">
-                    <input id="search_right" class="search_input" placeholder="Название">
+                    <input id="search_right" class="search_input" placeholder="Начните вводить имя друга">
                 </div>
                 <div class="filter_content">
                     <div class="filter__content-column">
@@ -32,7 +32,7 @@
                                 Ваши друзья
                                 <hr style="border-width: 0.5px; width:90%" >
                             </div>
-                            <div class="friends">
+                            <div class="friends left" id="drop_start" ondragenter='dragEnter(event)' ondrop="dragDrop(event)" ondragover="dragOver(event)">
                             </div>
                         </div>
                         <hr noshade style="width: 0.5px;border-color:#f0f0f0">
@@ -41,7 +41,7 @@
                                   Друзья в списке
                                   <hr style="border-width: 0.5px; width:90%" >
                                 </div>
-                                <div class="friends_right" draggable="true" id="drop_end" ondragenter='dragEnter(event)' ondrop="dragDrop(event)" ondragover="dragOver(event)">    
+                                <div class="friends right" id="drop_end" ondragenter='dragEnter(event)' ondrop="dragDrop(event)" ondragover="dragOver(event)">    
                                 </div>
                             </div>
                     </div>
