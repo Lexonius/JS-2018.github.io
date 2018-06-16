@@ -20,14 +20,26 @@ const myModule = {
             //console.log(friends)
             myModule.leftList = document.querySelector('.friends.left');
             myModule.leftList.addEventListener('click', myModule.moveToRight);
+
             //console.log(myModule.leftList);
             myModule.rightList = document.querySelector('.friends.right');
             myModule.rightList.addEventListener('click', myModule.moveToLeft);
             myModule.allFriends = friends.items;
-            myModule.leftFriends = friends.items;
+            //myModule.leftFriends = friends.items;
             //console.log(myModule.leftFriends);
-            myModule.rightFriends = [];
-            //console.log(myModule.allFriends)    
+            //myModule.rightFriends = [];
+            //console.log(myModule.allFriends)
+            if (localStorage.getItem('leftList')) {
+                myModule.leftFriends = JSON.parse ('localStorage.getItem.leftList');
+            } else {
+                myModule.leftFriends = friends.items;
+            }
+            if (localStorage.getItem('rightList')) {
+                myModule.rightFriends = JSON.parse ('localStorage.getItem.rightList');
+            } else {
+                myModule.rightFriends = [];
+            }
+            
             myModule.filter('#search_left',myModule.leftFriends,myModule.leftList);
             myModule.filter('#search_right', myModule.rightFriends,myModule.rightList);
             myModule.render(myModule.leftFriends, myModule.leftList);
@@ -155,8 +167,8 @@ const myModule = {
         console.log(storage);
         const save = document.querySelector('.footer_submit')
         save.addEventListener('click',() => {
-            localStorage.setItem('leftList','.leftFriends');
-            localStorage.setItem('rightList','.rightFriends');
+            localStorage.setItem('leftList',JSON.stringify(myModule.leftFriends));
+            localStorage.setItem('rightList',JSON.stringify(myModule.rightFriends));
           });
     },
     
