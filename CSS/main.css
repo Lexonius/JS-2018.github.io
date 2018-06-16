@@ -155,3 +155,15 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         color: #ffffff;
     }
+    .button_add {
+        background: url('../IMG/add.png') no-repeat;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .button_remove {
+        background: url('../IMG/remove.png') no-repeat;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
