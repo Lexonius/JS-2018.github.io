@@ -32,10 +32,9 @@ const myModule = {
             myModule.filter('#search_right', myModule.rightFriends,myModule.rightList);
             myModule.render(myModule.leftFriends, myModule.leftList);
             myModule.render(myModule.rightFriends, myModule.rightList);
+            myModule.save();
             //console.log(friends.items)
-            let storage = localStorage;
-            console.log(localStorage);
-            const save = document.querySelector('.footer_submit')
+            
              
             })
     },
@@ -153,13 +152,11 @@ const myModule = {
     },
     save:() => {
         let storage = localStorage;
-        console.log(localStorage);
+        console.log(storage);
         const save = document.querySelector('.footer_submit')
         save.addEventListener('click',() => {
-          storage.data = JSON.stringify ({
-              myModule.leftFriends: leftFriends.value,
-              myModule.rightFriends: rightFriends.value,
-              });
+            localStorage.setItem('leftList','.leftFriends');
+            localStorage.setItem('rightList','.rightFriends');
           });
     },
     
