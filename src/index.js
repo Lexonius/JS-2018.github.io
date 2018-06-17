@@ -30,16 +30,16 @@ const myModule = {
             //myModule.rightFriends = [];
             //console.log(myModule.allFriends)
             if (localStorage.getItem('leftList')) {
-                myModule.leftFriends = JSON.parse ('localStorage.getItem.leftList');
+                myModule.leftFriends = JSON.parse (localStorage.getItem('leftList'));
             } else {
                 myModule.leftFriends = friends.items;
             }
             if (localStorage.getItem('rightList')) {
-                myModule.rightFriends = JSON.parse ('localStorage.getItem.rightList');
+                myModule.rightFriends = JSON.parse (localStorage.getItem('rightList'));
             } else {
                 myModule.rightFriends = [];
             }
-            
+
             myModule.filter('#search_left',myModule.leftFriends,myModule.leftList);
             myModule.filter('#search_right', myModule.rightFriends,myModule.rightList);
             myModule.render(myModule.leftFriends, myModule.leftList);
